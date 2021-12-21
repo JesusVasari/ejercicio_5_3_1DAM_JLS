@@ -15,8 +15,8 @@ open class Agenda() {
     fun filtrarNombre(nombre: String): Set<Telefono> {
         return lista.filter { it.name.equals(nombre) }.toSet()
     }
-    fun ordenarNombre( nombre:String):Set<Telefono>{
-        return lista.filter { it.name.equals(nombre) }.toSet()
+    fun ordenarNombre():Set<Telefono>{
+        return lista.sortedBy{it.name}.toSet()
     }
 }
 
@@ -36,7 +36,7 @@ fun main(args: Array<String>) {
                 read == "imprimir" -> agenda.imprimirLista()
                 read == "filtrar" -> agenda.filtrarNombre("cuco")
                 read == "adios" -> exitProcess(1)
-                //read == "listado"-> agenda.ordenarNombre()
+                read == "listado"-> agenda.ordenarNombre()
             }
         }
     }
