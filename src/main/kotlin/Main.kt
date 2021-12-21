@@ -6,7 +6,6 @@ open class Agenda() {
 
     fun imprimirLista() {
         lista.forEach { println(it) }
-
     }
 
     fun addTel(tel: Telefono) {
@@ -14,6 +13,9 @@ open class Agenda() {
     }
 
     fun filtrarNombre(nombre: String): Set<Telefono> {
+        return lista.filter { it.name.equals(nombre) }.toSet()
+    }
+    fun ordenarNombre( nombre:String):Set<Telefono>{
         return lista.filter { it.name.equals(nombre) }.toSet()
     }
 }
@@ -31,9 +33,10 @@ fun main(args: Array<String>) {
         var read = readLine()
         while (read != "salida") {
             when {
-                read == "listado" -> agenda.imprimirLista()
+                read == "imprimir" -> agenda.imprimirLista()
                 read == "filtrar" -> agenda.filtrarNombre("cuco")
                 read == "adios" -> exitProcess(1)
+                //read == "listado"-> agenda.ordenarNombre()
             }
         }
     }
