@@ -60,18 +60,23 @@ fun ejecutaAccion(procesadaEntrada: Pair<String, String>, agenda: Agenda) {
         procesadaEntrada.first == "telefono" -> {
             println("buscar telefono")
             var contacto: Contacto? = agenda.buscarTelefono(procesadaEntrada.second)
+            println(contacto)
         }
         procesadaEntrada.first == "contacto" -> {
             println("buscar contacto")
             var contacto: Contacto? = agenda.buscarContacto(procesadaEntrada.second)
+            println(contacto)
         }
         procesadaEntrada.first == "listar" -> {
             println("listar contactos")
             var contacto: Unit = agenda.imprimirLista(procesadaEntrada.second)
+            println(contacto)
+
         }
         procesadaEntrada.first == "filtrar" -> {
             println("filtrar contacto")
             var contacto: Set<Contacto> = agenda.filtrarNombre(procesadaEntrada.second)
+            println(contacto)
         }
     }
 }
