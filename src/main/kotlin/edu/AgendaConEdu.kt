@@ -1,15 +1,17 @@
+package edu
+
+import java.lang.Exception
+
+
+
 
 class Agenda() {
     private var contactos = mutableSetOf<Contacto>()
 
     fun buscarContacto(telefono: String): Contacto? {
 
-        return contactos.find { it.nombre.equals(telefono) }
-    }
-    fun buscarTelefono(telefono:String):Contacto? {
         return contactos.find { it.telefono.equals(telefono) }
     }
-
 
     fun imprimirLista(second: String) {
         contactos.forEach { println(it) }
@@ -59,11 +61,11 @@ fun ejecutaAccion(procesadaEntrada: Pair<String, String>, agenda: Agenda) {
     when {
         procesadaEntrada.first == "telefono" -> {
             println("buscar telefono")
-            var contacto: Contacto? = agenda.buscarTelefono(procesadaEntrada.second)
+            var contacto: Contacto? = agenda.buscarContacto(procesadaEntrada.second)
         }
         procesadaEntrada.first == "contacto" -> {
             println("buscar contacto")
-            var contacto: Contacto? = agenda.buscarContacto(procesadaEntrada.second)
+            var contacto: Unit = agenda.imprimirLista(procesadaEntrada.second)
         }
         procesadaEntrada.first == "listar" -> {
             println("listar contactos")
@@ -100,7 +102,6 @@ fun procesarEntrada(entrada: String): Pair<String, String> {
         (entradaProc.first().isLetter()) -> {
             procesado = Pair("contacto", entrada)
         }
-
     }
     return procesado
 }
